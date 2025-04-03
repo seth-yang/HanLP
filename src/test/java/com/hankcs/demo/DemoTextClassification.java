@@ -46,6 +46,11 @@ public class DemoTextClassification
         predict(classifier, "研究生考录模式亟待进一步专业化");
         predict(classifier, "如果真想用食物解压,建议可以食用燕麦");
         predict(classifier, "通用及其部分竞争对手目前正在考虑解决库存问题");
+        predict (classifier, "天气预报");
+        predict (classifier, "吃饭");
+        predict (classifier, "你是谁");
+        predict (classifier, "我要睡觉了");
+        predict (classifier, "设备IMEI");
     }
 
     private static void predict(IClassifier classifier, String text)

@@ -10,7 +10,10 @@
  */
 package com.hankcs.demo;
 
+import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.BasicTokenizer;
+
+import java.util.List;
 
 /**
  * 演示基础分词，基础分词只进行基本NGram分词，不识别命名实体，不使用用户词典
@@ -25,6 +28,16 @@ public class DemoBasicTokenizer
                 "铭记二战历史，更是为了提醒国际社会，需要共同捍卫二战胜利成果和国际公平正义，" +
                 "必须警惕和抵制在历史认知和维护战后国际秩序问题上的倒行逆施。";
         System.out.println(BasicTokenizer.segment(text));
+        System.out.println (BasicTokenizer.segment ("美人鱼的叫声"));
+        System.out.println (BasicTokenizer.segment ("你是谁"));
+        System.out.println (BasicTokenizer.segment ("现在几点了"));
+        System.out.println (BasicTokenizer.segment ("天气预报"));
+
+        List<Term> terms = BasicTokenizer.segment ("晚上会下雨吗");
+        for (Term term : terms) {
+            System.out.printf ("%s%n", term.nature);
+        }
+
         // 测试分词速度，让大家对HanLP的性能有一个直观的认识
         long start = System.currentTimeMillis();
         int pressure = 100000;
@@ -34,5 +47,8 @@ public class DemoBasicTokenizer
         }
         double costTime = (System.currentTimeMillis() - start) / (double) 1000;
         System.out.printf("BasicTokenizer分词速度：%.2f字每秒\n", text.length() * pressure / costTime);
+
+
+
     }
 }

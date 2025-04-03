@@ -30,6 +30,8 @@ public class DemoNumberAndQuantifierRecognition
                         "９０１２３４５６７８只蚂蚁",
                         "牛奶三〇〇克*2",
                         "ChinaJoy“扫黄”细则露胸超2厘米罚款",
+                    "五加八等于几",
+                    "5+8等于几"
                 };
         for (String sentence : testCase)
         {

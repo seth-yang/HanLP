@@ -38,8 +38,10 @@ public class DemoStopWord
         System.out.println(NotionalTokenizer.segment(text));
         // 可以对任意分词器的结果执行过滤
         List<Term> termList = BasicTokenizer.segment(text);
+        System.out.println ("---- before apply ---");
         System.out.println(termList);
         CoreStopWordDictionary.apply(termList);
+        System.out.println ("---- after apply ---");
         System.out.println(termList);
         // 还可以自定义过滤逻辑
         CoreStopWordDictionary.FILTER = new Filter()

@@ -26,10 +26,24 @@ public class DemoNLPSegment extends TestUtility
 {
     public static void main(String[] args)
     {
-        NLPTokenizer.ANALYZER.enableCustomDictionary(false); // 中文分词≠词典，不用词典照样分词。
+//        NLPTokenizer.ANALYZER.enableCustomDictionary(false); // 中文分词≠词典，不用词典照样分词。
         System.out.println(NLPTokenizer.segment("我新造一个词叫幻想乡你能识别并正确标注词性吗？")); // “正确”是副形词。
         // 注意观察下面两个“希望”的词性、两个“晚霞”的词性
         System.out.println(NLPTokenizer.analyze("我的希望是希望张晚霞的背影被晚霞映红").translateLabels());
         System.out.println(NLPTokenizer.analyze("支援臺灣正體香港繁體：微软公司於1975年由比爾·蓋茲和保羅·艾倫創立。"));
+
+
+        String[] targets = {
+            "猫是怎么叫的", "喵是怎么叫的", "喵是什么", "喵喵", "小狗", "小猫",
+            "会下雨吗", "今天的天气怎么样",
+            "报时",
+            "今天几号", "今天是星期几",
+            "设置一个二十分钟后的闹钟",
+            "无关紧要的农民呢",
+            "你是谁"
+        };
+        for (String target : targets) {
+            System.out.println (NLPTokenizer.analyze (target));
+        }
     }
 }
